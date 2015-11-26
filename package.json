@@ -1,0 +1,26 @@
+{
+  "name": "testfairy-uploader",
+  "version": "1.0.0",
+  "description": "TestFairy uploader cli",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testfairy/priv-uploader.git"
+  },
+  "keywords": [
+    "testfairy"
+  ],
+  "author": "testfairy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/testfairy/priv-uploader/issues"
+  },
+  "homepage": "https://github.com/testfairy/priv-uploader#readme",
+  "preferGlobal": true,
+  "bin": {
+    "testfairy-uploader": "bin/index.js"
+  }
+}
+
