@@ -1,0 +1,20 @@
+language: node_js
+before_deploy:
+  - VERSION=${TRAVIS_TAG}
+  - ZIP_FILE=testfairy-uploader-${VERSION}.zip
+  - ARCHIVE=https://github.com/testfairy/testfairy-uploader-cli/releases/download/${VERSION}/${ZIP_FILE}
+  - wget -q ${ARCHIVE}
+  - unzip -q -o -d bin/. ${ZIP_FILE}
+  - rm ${ARCHIVE}
+  - npm pack
+deploy:
+  provider: npm
+  email: support@testfairy.com
+  api_key:
+    secure: VjEOpMVuppcD6I+VNJeq6PMl00v/0ajD5t+hM9D1Vo2Y48pcjOI/Kgv8BBS+MwDiLFNxZpa2T3+zlbykhPNb3wNEXXOHm6Ur8runChiz/9LCxD27tpyE3RoxraGKPzqYKejCmw8Hp4qER3FBrOzgqeC2QSp2BjyGRSv70FHNvqWrrzbdZJozoHsvnwvRM3/0VcKhAU/TSSycPf/W4nnqgJMcP6qI6R/98PC+mqQQVO6wyObe8j0jbOeatOt96FRDLkiC/SmVTDMxcpVpeDOd8MoocKPa1N85G3FGpK4E+UAjP4buwFYqbQzfJXOo3g4J4+dLDGJ3r9UL/iuGQflxw1MaosVLNrtkPOwfaWE4gfrc3Rp3aPcZLLDBx83r8Wv7lss45ejiq3EQs9A7VBXgv6H5hFsMMjhoI5QtHctVpU8/RbWpov10FlwJtDWMLsCgZVMvmeqmpcu7/5tPzDPfZJ3q64yGMYS8L1j/USLIxqPlFM/7MAq2TdZf6YkOlqfZPCpTrAPgqZveeas1deIGRdb33Fix0CWwLPbOK/J2WtPxRCz9aHJ9jIelVjjSGVprktdVTMDUsjKbP/8VX66FH0rFPdPYpmgzKDtGWW19S5DwMD42+kaRM13js0M4EWQbgy8vP0Zm0qlFR7T9outnJG8AAno30RZLqyhXM583Pfg=
+  skip_cleanup: true
+  file: testfairy-uploader-${TRAVIS_TAG}.tgz
+  on:
+    tags: true
+    repo: testfairy/node-testfairy-uploader
+    branch: master

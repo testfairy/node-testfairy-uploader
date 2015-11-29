@@ -1,13 +1,14 @@
 {
   "name": "testfairy-uploader",
   "version": "1.0.0",
-  "description": "TestFairy uploader cli",
+  "description": "TestFairy uploader cli utility",
+  "author": "Gil Megidish",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/testfairy/priv-uploader.git"
+    "url": "git+https://github.com/testfairy/node-testfairy-uploader"
   },
   "keywords": [
     "testfairy"
@@ -15,9 +16,9 @@
   "author": "testfairy",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/testfairy/priv-uploader/issues"
+    "url": "https://github.com/testfairy/node-testfairy-uploader"
   },
-  "homepage": "https://github.com/testfairy/priv-uploader#readme",
+  "homepage": "https://github.com/testfairy/node-testfairy-uploader#readme",
   "preferGlobal": true,
   "bin": {
     "testfairy-uploader": "bin/index.js"
