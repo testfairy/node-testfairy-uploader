@@ -61,7 +61,7 @@ set CMD_LINE_ARGS=%$
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\cli.jar
+set CLASSPATH=%APP_HOME%\testfairy-uploader.jar
 
 @rem Execute script
 "%JAVA_EXE%" -classpath "%CLASSPATH%" com.testfairy.uploader.cli.Main %CMD_LINE_ARGS%
