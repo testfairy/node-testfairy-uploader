@@ -5,7 +5,7 @@ before_deploy:
   - ARCHIVE=https://github.com/testfairy/testfairy-uploader-cli/releases/download/${VERSION}/${ZIP_FILE}
   - wget -q ${ARCHIVE}
   - unzip -q -o -d bin/. ${ZIP_FILE}
-  - rm ${ARCHIVE}
+  - rm ${ZIP_FILE}
   - npm pack
 deploy:
   provider: npm
