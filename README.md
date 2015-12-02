@@ -12,8 +12,21 @@ npm install -g testfairy-uploader
 
 Quick Start
 -----------
+To upload iOS builds
 ```
-> testfairy-uploader --api-key <API KEY from https://app.testfairy.com/settings> /path/to/apk/or/ipa
+testfairy-uploader 
+    --api-key <API KEY from https://app.testfairy.com/settings> 
+    </path/to/ipa>
+```
+
+To upload Android builds
+```
+testfairy-uploader 
+    --api-key <API KEY from https://app.testfairy.com/settings> 
+    --keystore=KEYSTORE_PATH
+    --storepass=KEYSTORE_PASSWORD
+    --alias=KEYSTORE_ALIAS
+    </path/to/apk>
 ```
 
 License
