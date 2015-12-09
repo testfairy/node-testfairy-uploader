@@ -1,22 +1,22 @@
 language: node_js
 node_js:
-  - "4.1"
+- '4.1'
 env:
-  - TESTFAIRY_UPLOAD_CLI_VERSION='1.1.3'
+- TESTFAIRY_UPLOAD_CLI_VERSION='1.1.3'
 before_deploy:
-  - sed -i'' "s/\"version\":.*/\"version\":\"${TRAVIS_TAG}\",/g" package.json
-  - VERSION=${TESTFAIRY_UPLOAD_CLI_VERSION}
-  - ZIP_FILE=testfairy-uploader-${VERSION}.zip
-  - ARCHIVE=https://github.com/testfairy/testfairy-uploader-cli/releases/download/${VERSION}/${ZIP_FILE}
-  - wget -q ${ARCHIVE}
-  - unzip -q -o -d bin/. ${ZIP_FILE}
-  - rm ${ZIP_FILE}
-  - npm pack
+- sed -i'' "s/\"version\":.*/\"version\":\"${TRAVIS_TAG}\",/g" package.json
+- VERSION=${TESTFAIRY_UPLOAD_CLI_VERSION}
+- ZIP_FILE=testfairy-uploader-${VERSION}.zip
+- ARCHIVE=https://github.com/testfairy/testfairy-uploader-cli/releases/download/${VERSION}/${ZIP_FILE}
+- wget -q ${ARCHIVE}
+- unzip -q -o -d bin/. ${ZIP_FILE}
+- rm ${ZIP_FILE}
+- npm pack
 deploy:
   provider: npm
   email: support@testfairy.com
   api_key:
-    secure: VjEOpMVuppcD6I+VNJeq6PMl00v/0ajD5t+hM9D1Vo2Y48pcjOI/Kgv8BBS+MwDiLFNxZpa2T3+zlbykhPNb3wNEXXOHm6Ur8runChiz/9LCxD27tpyE3RoxraGKPzqYKejCmw8Hp4qER3FBrOzgqeC2QSp2BjyGRSv70FHNvqWrrzbdZJozoHsvnwvRM3/0VcKhAU/TSSycPf/W4nnqgJMcP6qI6R/98PC+mqQQVO6wyObe8j0jbOeatOt96FRDLkiC/SmVTDMxcpVpeDOd8MoocKPa1N85G3FGpK4E+UAjP4buwFYqbQzfJXOo3g4J4+dLDGJ3r9UL/iuGQflxw1MaosVLNrtkPOwfaWE4gfrc3Rp3aPcZLLDBx83r8Wv7lss45ejiq3EQs9A7VBXgv6H5hFsMMjhoI5QtHctVpU8/RbWpov10FlwJtDWMLsCgZVMvmeqmpcu7/5tPzDPfZJ3q64yGMYS8L1j/USLIxqPlFM/7MAq2TdZf6YkOlqfZPCpTrAPgqZveeas1deIGRdb33Fix0CWwLPbOK/J2WtPxRCz9aHJ9jIelVjjSGVprktdVTMDUsjKbP/8VX66FH0rFPdPYpmgzKDtGWW19S5DwMD42+kaRM13js0M4EWQbgy8vP0Zm0qlFR7T9outnJG8AAno30RZLqyhXM583Pfg=
+    secure: sV1C7rZwWcJhLjhu9Ya7l2R9w6JHAbs1MEBBZNbq1wUqIBdrOVl6cteGX9QKQlBSbM/8jASFNKZRXyHSBmZoRIENQvddFmKiua4mPpuK2OtiWtLLgHRB+o47h9AjQKQ+gi0RDaHub1OJ7NkeuXNx1xBeVgl5+m0EEdR18kSBKjGn318UsCxCSxzMEZyYLYdZe81e+FU9mVxJlGhCrrn9aPIGCKy065HOi2K1CBLKbeSzW6PqOYw2OPVfxHQo9A86fiRhgSLj/2pgJyCT6MYhvgbgYt7onJIOEF0/euFCxuh+YjCdxDSg2ASXDRi7TmhDZY7kO/xqlUG8Sz0SuFSPNUJS4BVQMX1RrnLPy5AEVcL8lyRs9+N3EzAzYGYfmDULCpGAOY8GDvlQvcH4I7CgfqRBEjzdB3By+mtY0OSgrQ9y5OPtvUEuieZnfGKi5psgdaT7Fz2CVXyLKSp9qDR+jbfty9/ZiRFhnbHxV5z7XIRLgAXaIUGVJH9x/WpzlcP8t7kcNESnmnFK9+UUR9ZnROeUFyVDcfz83fiMpO2beOhl8NCxu3UfJgzY/vwHawzwTF+a3ofjwHjTeeoGMY23KBiwKxJ5l0D+JrYYi68gEehkfSNf1egXLXg2ZWvHBzzaNMespzHmJWsrs4cZ/N48K9pKXLlv2/p8kcjeouzgg9s=
   skip_cleanup: true
   file: testfairy-uploader-${TESTFAIRY_UPLOAD_CLI_VERSION}.tgz
   on:
