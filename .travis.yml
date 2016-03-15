@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '4.1'
 env:
-- TESTFAIRY_UPLOAD_CLI_VERSION='1.1.3'
+- TESTFAIRY_UPLOAD_CLI_VERSION='1.1.6'
 before_deploy:
 - sed -i'' "s/\"version\":.*/\"version\":\"${TRAVIS_TAG}\",/g" package.json
 - VERSION=${TESTFAIRY_UPLOAD_CLI_VERSION}
